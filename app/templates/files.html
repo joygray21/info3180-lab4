@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+    <ol>
+        {% for imgFN in imageFileNames %}
+            <!-- {{ imgFN }} -->
+            <li><img src="{{ url_for('get_image', filename=imgFN) }}"/> </li>
+        {% endfor %}
+    </ol>
+    
+{% endblock %}
