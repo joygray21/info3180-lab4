@@ -69,9 +69,11 @@ def get_image(filename):
     
     return send_from_directory(os.path.join(rootDir, app.config['UPLOAD_FOLDER']), filename)
 
-
 @app.route('/files')
 def files():
+    if not session.get('logged_in'):
+        abort(401)
+        
     # imageFiles = []
     imageFileNames = get_uploaded_images()
 
